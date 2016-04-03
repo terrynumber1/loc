@@ -15,13 +15,19 @@
             return 'from f1 service';
         };
 
-        var f2 = function () {
+        var readall = function () {
+            // $http, asynchronus, promise object
             return $http.get('http://localhost:3000/api/readall');
+        };
+
+        var readone = function (inputid) {
+            return $http.get('http://localhost:3000/api/readone/' + inputid);
         };
 
         return {
             f1: f1,
-            f2: f2
+            readall: readall,
+            readone: readone
         };
     }
 })();

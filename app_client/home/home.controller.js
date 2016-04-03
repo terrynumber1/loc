@@ -22,13 +22,29 @@
             // src='ui-bootstrap-custom-0.12.0.min.js
             // src='ui-bootstrap-custom-tpls-0.12.0.min.js
 
-            var modalInstance = $modal.open({
-                templateUrl: '/reviewformmodal/reviewformmodal.view.html', // HTML
-                controller: 'reviewformmodal' // Data
-            });
+            //var modalInstance = $modal.open({
+            //    templateUrl: '/reviewformmodal/reviewformmodal.view.html', // HTML
+            //    controller: 'reviewformmodal' // Data
+            //});
         };
 
-        $scope.readAll1 = function () {
+        $scope.popupform1 = function() {
+            $modal.open({
+                templateUrl: '/reviewformmodal/reviewformmodal.view.html', // HTML
+                controller: 'reviewformodal', // functions, data
+                resolve: {
+                    data1: function() {
+                        return {
+
+                        };
+                    }
+                }
+            });
+
+            console.log('===== popupform1 ======');
+        };
+
+        $scope.readAllnotuse = function () {
             $http({
                 method: 'GET',
                 url: 'http://localhost:3000/api/readall'
@@ -44,26 +60,26 @@
                 });
         };
 
-        $scope.readAll2 = function () {
+        $scope.readAll2notuse = function () {
             $http.get('http://localhost:3000/api/readall')
                 .success(function (responseObject) {
                     $scope.koko6 = responseObject;
                     console.log($scope.koko6);
                 })
                 .error(function (err) {
-                    console.log('ERRRRRRRRRRRRRRRRRRRRRRRR');
+                    console.log('error at readALL2');
                 });
         };
 
         console.log(service1.f1());
 
-        service1.f2()
+        service1.readall()
             .success(function(responseObject){
                 console.log(responseObject);
                 $scope.aa1 = responseObject;
             })
             .error(function(err){
-                console.log('ERRRRRRRRRRRRRRRRRRRRRRRR');
+                console.log('error at readall');
             });
 
         console.log("I'm at the end of home.controller.js");

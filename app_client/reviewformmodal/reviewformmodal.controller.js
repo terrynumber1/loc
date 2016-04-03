@@ -2,10 +2,10 @@
 
     angular
         .module('app1')
-        .controller('reviewformmodal', reviewformmodal);
+        .controller('reviewformodal', reviewformodal);
 
-    reviewformmodal.$inject = ['$modalInstance'];
-    function reviewformmodal($modalInstance) {
+    reviewformodal.$inject = ['$modalInstance'];
+    function reviewformodal($modalInstance) {
         //var vm = this;
 
         this.onSubmit = function () {

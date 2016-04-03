@@ -10,7 +10,6 @@ module.exports.readone = function (req, res) {
 
     console.log(req.params);
     console.log(req.params.id);
-    console.log('Am I here yet?');
 
     model1
         .findById(req.params.id)
@@ -18,10 +17,10 @@ module.exports.readone = function (req, res) {
             if (err) {
                 console.log('There was an error querying the database.');
             } else if (!err) {
+                console.log('Found something, sending response JSON to web-browser');
                 res.json(input);
             } else {
                 console.log('did not find anything');
-                console.log('I am under input');
             }
         });
 };

@@ -2,7 +2,8 @@
     <form id="addReview" name="addReview" role="form" ng-submit="cas.onSubmit()" class="form-horizontal">
 
         <div class="modal-header">
-            <h4> form header </h4>
+            <button type="button" ng-click="this.modal.cancel()" class="close" > <span aria-hidden="true">x</span> </button>
+            <h4 id="myModalLabel" class="modal-title">Add your review for ... </h4>
         </div>
 
         <div class="modal-body">

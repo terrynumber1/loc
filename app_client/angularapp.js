@@ -4,10 +4,16 @@
 
     app1.config(function ($routeProvider) {
         $routeProvider
+            // '/#/'
             .when('/', {
                 templateUrl: '/home/home.view.html',
                 controller: 'control1'
                 //controllerAs: 'cas'
+            })
+            // '/#/locationdetail/
+            .when('/locationdetail/:id', {
+                templateUrl: '/locationdetail/locationdetail.view.html',
+                controller: 'locationdetail'
             })
             .otherwise({redirectTo: '/'});
     });

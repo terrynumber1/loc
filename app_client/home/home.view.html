@@ -5,19 +5,32 @@
     <div class="row">
         <div class="col-xs-12 col-sm-8">
 
-            <!--<p ng-repeat="asdf in aa1"> Name : {{ asdf.name }} >> {{ asdf.address }} </p>-->
-
             <label for="filter">Filter results</label>
             <input id="filter" type="text" name="filter" ng-model="textFilter">
 
             <div class="row list-group">
-                <div class="col-xs-12 list-group-item" HERE>
+                <div class="col-xs-12 list-group-item" ng-repeat="asdf in aa1 | filter:textFilter ">
+                    <h4>
+                        <!--<a href="/api/readone/{{ asdf._id }}"> {{ asdf.name }}</a>-->
+                        <a href = "/#/locationdetail/{{ asdf._id }}"> {{ asdf.name }} </a>
+                        <span class="badge pull-right badge-default"> {{asdf.rating}} </span>
+                    </h4>
 
+                    <p class="address"> {{asdf.address}} </p>
+                    <p>
+                        <span class="label label-warning label-facility" ng-repeat=" facility in asdf.facilities">
+                            {{facility }}
+                        </span>
+                    </p>
                 </div>
             </div>
 
-            <button ng-click="cas.popupReviewForm(input)"> click {{textFilter}} </button>
+            <button ng-click=""> click {{textFilter}} </button>
+            <button ng-click="this.popupform1()"> popup form </button>
+        </div>
 
+        <div class="col-xs-12 col-sm-4">
+            <p class="lead"> Side bar content </p>
         </div>
     </div>
 
