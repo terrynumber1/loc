@@ -8,17 +8,44 @@
             <h4> {{ data.name }}</h4>
             <p> {{ data.address }} </p>
 
-            <div class="panel panel-heading">
-                <h2 class="panel-title">Opening hours</h2>
+            <div class="panel panel-primary">
+
+                <div class="panel panel-heading">
+                    <h2 class="panel-title">Opening hours</h2>
+                </div>
+                <div class="panel panel-body">
+                    <p ng-repeat="otime in data.openingTimes" ng-switch="otime.closed" >
+                        {{otime.days}}
+                        <span ng-switch-when="true">: Closed</span>
+                        <span ng-switch-default>
+                            : {{ otime.opening }} - {{ otime.closing }}
+                        </span>
+                    </p>
+                </div>
+
             </div>
-            <div class="panel panel-body">
-                sdf
+
+            <div class="panel panel-primary">
+
+                <div class="panel panel-heading">
+                    <h2 class="panel-title">Facilities</h2>
+                </div>
+
+                <div class="panel panel-body">
+                    <span class="label label-warning label-facility" ng-repeat="facility in data.facilities">
+                        {{ facility }}
+                    </span>
+                </div>
+
             </div>
+
+            <button ng-click="this.popupform1()"> popup form </button>
 
         </div>
 
         <div class="col-xs-12 col-md-3">
-            df
+            <p class="lead">{{ data.name }} is on Loc8r because it has accessible wifi and space to sit down with your laptop and get some work done.</p>
+            <p>If you've been and you like it - or if you don't - please leave a review to help other people just like you.</p>
         </div>
 
     </div>

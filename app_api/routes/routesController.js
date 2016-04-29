@@ -9,10 +9,10 @@ module.exports.sayhi = function (req, res) {
 module.exports.readone = function (req, res) {
 
     console.log(req.params);
-    console.log(req.params.id);
+    console.log(req.params.inputid);
 
     model1
-        .findById(req.params.id)
+        .findById(req.params.inputid)
         .exec(function (err, input) {
             if (err) {
                 console.log('There was an error querying the database.');
@@ -36,4 +36,10 @@ module.exports.readall = function (req, res) {
                 console.log(err);
             }
         });
+};
+
+module.exports.addOneById = function (req, res) {
+    console.log('addOneById');
+    console.log(req.params.inputid);
+
 };

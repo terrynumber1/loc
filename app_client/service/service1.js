@@ -24,12 +24,17 @@
             return $http.get('http://localhost:3000/api/readone/' + inputid);
         };
 
+        var addOneById = function (inputid) {
+            return $http.post('http://localhost:3000/api/addOneById/' + inputid);
+        };
+
         return {
             f1: f1,
             readall: readall,
-            readone: readone
+            readone: readone,
+            addOneById: addOneById
         };
     }
 })();
 
-console.log("I'm at the end of app1service.js");
+console.log("I'm at the end of service1.js");

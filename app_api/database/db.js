@@ -56,7 +56,7 @@ var locationSchema = new mongoose.Schema({
 });
 
 //mongoose("this name must match the collection's name in the database", schema)
-;mongoose.model('locations', locationSchema);
+mongoose.model('locations', locationSchema);
 
 // Mongoose Schema and Model ===============================
 

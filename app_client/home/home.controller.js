@@ -28,22 +28,19 @@
             //});
         };
 
-        $scope.popupform1 = function() {
-            $modal.open({
-                templateUrl: '/reviewformmodal/reviewformmodal.view.html', // HTML
-                controller: 'reviewformodal', // functions, data
-                resolve: {
-                    data1: function() {
-                        return {
+        console.log(service1.f1());
 
-                        };
-                    }
-                }
+        service1.readall()
+            .success(function(responseObject){
+                console.log(responseObject);
+                $scope.aa1 = responseObject;
+            })
+            .error(function(err){
+                console.log('error at readall');
             });
 
-            console.log('===== popupform1 ======');
-        };
-
+        // Functions below are not being use
+        // ***
         $scope.readAllnotuse = function () {
             $http({
                 method: 'GET',
@@ -70,17 +67,6 @@
                     console.log('error at readALL2');
                 });
         };
-
-        console.log(service1.f1());
-
-        service1.readall()
-            .success(function(responseObject){
-                console.log(responseObject);
-                $scope.aa1 = responseObject;
-            })
-            .error(function(err){
-                console.log('error at readall');
-            });
 
         console.log("I'm at the end of home.controller.js");
     } //
