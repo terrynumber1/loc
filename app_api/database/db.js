@@ -55,8 +55,15 @@ var locationSchema = new mongoose.Schema({
     reviews: [reviewSchema]
 });
 
+var schema2 = new mongoose.Schema({
+    name: String,
+    review: String
+});
+
 //mongoose("this name must match the collection's name in the database", schema)
+
 mongoose.model('locations', locationSchema);
+mongoose.model('locations2', schema2);
 
 // Mongoose Schema and Model ===============================
 

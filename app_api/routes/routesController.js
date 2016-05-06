@@ -1,9 +1,11 @@
 var mongoose = require('mongoose');
 //var model1 = mongoose.model('schema1');
 var model1 = mongoose.model('locations');
+var model2 = mongoose.model('locations2');
 
-module.exports.sayhi = function (req, res) {
-    res.send('jjjjjjjjjjjj');
+var sendJSONresponse = function (res, status, content) {
+    res.status(status);
+    res.json(content);
 };
 
 module.exports.readone = function (req, res) {
@@ -29,17 +31,35 @@ module.exports.readall = function (req, res) {
 
     model1
         .find({},
-        function (err, input) {
+        function (err, result_input) {
             if (!err) {
-                res.json(input);
+                res.json(result_input);
             } else {
                 console.log(err);
             }
         });
 };
 
-module.exports.addOneById = function (req, res) {
-    console.log('addOneById');
-    console.log(req.params.inputid);
+module.exports.addone = function (req, res) {
+
+    // req.params.inputid, POST /addOneById/:inputid
+
+    model2.create({
+            name: req.body.name,
+            review: req.body.review
+        }, function (err) {
+
+            console.log(req.body.name);
+            console.log(req.body.review);
+
+            if (err) {
+                console.log(err);
+                sendJSONresponse(res, 400, err);
+            } else {
+                console.log('model2.create');
+                sendJSONresponse(res, 201, 'empty');
+            }
+        }
+    );
 
 };

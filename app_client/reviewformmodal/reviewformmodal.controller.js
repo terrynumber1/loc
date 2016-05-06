@@ -9,20 +9,27 @@
         var vm = this;
 
         vm.onSubmit = function () {
-            //console.log('== onSubmit ==');
             console.log(formdata1.id1 + ' ----- ' + formdata1.name1);
 
-            service1.addOneById(formdata1.id)
+            // vm.formData is data in reviewformmodal.html
+            console.log("reviewformmodal.controller.js 15 >> formData.name: " + vm.formData.name);
 
-
-
+            service1.addone({
+                name: vm.formData.name, // vm.formData.name is in reviewformmodal.view.html
+                review: vm.formData.review // vm.formData.review is in reviewformodal.view.html
+                //name: formdata1.name1,
+                //review: formdata1.review1
+            })
                 // need to receive success response code
                 .success(function (inputdata) {
-                    console.log('success');
+                    console.log('reviewformmodal.controller.js >> service1.addone');
+                    console.log(inputdata);
                 })
                 .error(function (inputdata) {
-                    console.log('error in onSubmit reviewformmodal.controller.js');
+                    console.log('error in onSubmit reviewformmodal.controller.js 27');
                 });
+
+
         };
     }
 

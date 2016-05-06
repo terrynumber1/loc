@@ -28,10 +28,13 @@
                 templateUrl: '/reviewformmodal/reviewformmodal.view.html', // HTML
                 controller: 'reviewformmodal as vm', // functions, data
                 resolve: {
+                    // formdata1(){} is use in reviewformmodal.controller.js
+                    // so modal can use data in locationdetail.controller.js
                     formdata1: function() {
                         return {
                             id1: $scope.id,
-                            name1: $scope.data.name
+                            name1: $scope.data.name,
+                            review1: $scope.data.address
                         };
                     }
                 }
@@ -39,8 +42,8 @@
 
 
             console.log('===== popupform1 =====');
-            console.log($scope.id);
-            console.log($scope.data.name);
+            //console.log($scope.id);
+            //console.log($scope.data.name);
         };
 
     }

@@ -24,15 +24,16 @@
             return $http.get('http://localhost:3000/api/readone/' + inputid);
         };
 
-        var addOneById = function (inputid) {
-            return $http.post('http://localhost:3000/api/addOneById/' + inputid);
+        var addone = function (data) {
+            return $http.post('http://localhost:3000/api/addone', data);
+            //return $http.post('http://localhost:3000/api/addone');
         };
 
         return {
             f1: f1,
             readall: readall,
             readone: readone,
-            addOneById: addOneById
+            addone: addone
         };
     }
 })();
